@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 class LoverApiController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="list")
      * @Method({"GET","POST"})
      */
     public function listAction(Request $request)
@@ -26,12 +26,12 @@ class LoverApiController extends Controller
         $gender = '';
         if ($request->getMethod() == 'POST') {
 
-            $gender->$request->request->get('question');
+            $gender= $request->get('question');
 
             $templateVariables = [
                 'gender' => $gender];
 
-            return $this->redirectToRoute('LoverApi/list.html.twig', $templateVariables);
+            return $this->redirectToRoute('list', $templateVariables);
         }
 
         return $this->render('LoverApi/list.html.twig', [

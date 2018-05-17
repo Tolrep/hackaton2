@@ -21,12 +21,4 @@ class LoverApiFetch
         return json_decode($response->getBody()->getContents());
     }
 
-    public function getAllByGender($gender)
-    {
-        $response = $this->client->request('GET', 'all.json');
-        $datas= json_decode($response->getBody()->getContents());
-
-        $select=$datas->getDatas();
-        return $select;
-    }
 }
