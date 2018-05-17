@@ -106,9 +106,15 @@ class LoverApiController extends Controller
     {
         $api = new LoverApiFetch();
         $lover = $api->getOneById($id);
+
+        $price = rand(250,2000);
+
         return $this->render('LoverApi/match.html.twig', [
             'lover' => $lover,
-            'noPlanet' => 'la bordure extèrieur'
+            'noPlanet' => 'la bordure extèrieur',
+            'price' => $price
+
         ]);
     }
+
 }

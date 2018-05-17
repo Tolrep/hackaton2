@@ -15,9 +15,17 @@ body {
 
 .endMessage {
     font-size: 2em;
-    color: green;
+    color: rgb(230,215,0);
+    text-shadow: 2px 2px 0px black;
+    text-shadow: -2px -2px 0px black;
 }
 
 .detailedCard {
     width: 400px;
+}
+
+.finalMatch{
+    font-size: 3em;
+    color: pink;
+;
 }
