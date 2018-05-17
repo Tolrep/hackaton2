@@ -15,11 +15,11 @@
 
     <body class="{% block bodyClass %}backgroundBody{% endblock %}">
 
-        <header class="text-center mb-3 mt-2 ml-auto mr-auto">
+        <header class="text-center pt-3 pb-5 mb-3 mt-2 ml-auto mr-auto">
             <div class="container">
                 <nav>
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-12 col-md-2">
                             {% if session.get('user') %}
                                 <span class="welcomeMess">Bienvenue {{ session.get('user') }} !</span>
                             {% endif %}

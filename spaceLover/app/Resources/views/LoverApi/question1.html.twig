@@ -1,14 +1,18 @@
-<form method="get" action="" style="background-color: #6b9311">
-    <p>Type de sabre laser ?</p>
-    <div>
-        <input type="radio" id="choice1" name="gender" value="male">
-        <label for="choice1">simple</label>
-
-        <input type="radio" id="choice2"name="gender" value="male">
-        <label for="choice2">double</label>
-
-        <input type="radio" id="choice3"name="gender" value="female">
-        <label for="choice3">je n'aime pas les sabres</label>
+<form method="get" action="" class="w-50 text-center m-auto form-question pt-3 pb-3">
+    <p>Taille de sabre laser ?</p>
+    <div class="d-flex justify-content-around">
+        <div>
+            <input type="radio" id="choice1" name="gender" value="male">
+            <label class="label-question"for="choice1">&nbspSimple</label>
+        </div>
+        <div>
+            <input type="radio" id="choice2"name="gender" value="male">
+            <label class="label-question" for="choice2">&nbspDouble</label>
+        </div>
+        <div>
+            <input type="radio" id="choice3"name="gender" value="female">
+            <label class="label-question" for="choice3">&nbspJe n'aime pas les sabres</label>
+        </div>
     </div>
-    <input type="submit">
+    <input class="btn btn-link submit-question" type="submit">
 </form>

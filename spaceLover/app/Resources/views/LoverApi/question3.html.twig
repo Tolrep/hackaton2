@@ -1,17 +1,23 @@
-<form method="get" action="" style="background-color: #6b9311">
-    <p>Quel type de fruit aimes tu ?</p>
-    <div>
+<form method="get" action="" class="w-50 text-center m-auto form-question pt-3 pb-3">
+    <p>quel type de fruit aimes tu ?</p>
+    <div class="d-flex justify-content-around">
         <input type="hidden" name="gender" value="{{ gender }}"/>
         <input type="hidden" name="species" value="{{ species }}"/>
+        <div>
+            <input type="radio" id="choice1" name="age" value="1">
+            <label class="label-question"for="choice1">bien ferme</label>
+        </div>
 
-        <input type="radio" id="choice1" name="age" value="1">
-        <label for="choice1">bien ferme</label>
+        <div>
+            <input type="radio" id="choice2" name="age" value="2">
+            <label class="label-question" for="choice2">bien mure</label>
+        </div>
 
-        <input type="radio" id="choice2" name="age" value="2">
-        <label for="choice2">bien mure</label>
+        <div>
+            <input type="radio" id="choice3" name="age" value="3">
+            <label class="label-question" for="choice3">verreux</label>
+        </div>
 
-        <input type="radio" id="choice3" name="age" value="3">
-        <label for="choice3">verreux</label>
     </div>
-    <input type="submit">
+    <input class="btn btn-link submit-question" type="submit">
 </form>
