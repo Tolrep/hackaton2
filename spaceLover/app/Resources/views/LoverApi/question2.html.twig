@@ -1,17 +1,18 @@
-<form>
+<form method="get" action="" style="background-color: #6b9311">
 
-    <p>{{ selected }}</p>
     <p>Es-tu plutot : </p>
     <div>
-        <input type="radio" id="choice1" name="question" value="1">
+        <input type="hidden" name="gender" value="{{ gender }}"/>
+
+        <input type="radio" id="choice1" name="species" value="1">
         <label for="choice1">humain</label>
 
-        <input type="radio" id="choice2"name="question" value="2">
+        <input type="radio" id="choice2"name="species" value="2">
         <label for="choice2">industriel</label>
 
-        <input type="radio" id="choice3"name="question" value="3">
+        <input type="radio" id="choice3"name="species" value="3">
         <label for="choice3">exotique</label>
     </div>
-    <input type="submit" name="submit" value="répondre">
+    <input type="submit">
     <div>
 </form>
