@@ -23,10 +23,11 @@ class LoverApiController extends Controller
         $api = new LoverApiFetch();
         $lovers = $api->getAll();
 
-        $gender = '';
         if ($request->getMethod() == 'POST') {
 
             $gender= $request->get('question');
+            $apiGender = new LoverApiFetch();
+
 
             $templateVariables = [
                 'gender' => $gender];
