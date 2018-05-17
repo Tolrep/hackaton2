@@ -39,7 +39,5 @@ class LoverApiController extends Controller
             'lovers' => $lovers,
         ]);
 
-
     }
-
 }
