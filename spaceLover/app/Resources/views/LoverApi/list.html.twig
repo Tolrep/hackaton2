@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% for lover in lovers %}
+    Nom: {{ lover.name }}<br>
+    {% endfor %}
+{% endblock %}
