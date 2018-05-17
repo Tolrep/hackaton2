@@ -34,8 +34,9 @@ class LoverApiFetch
     return $datasByGender;
     }
 
-    public function getBySpecies($datas, $species)
+    public function getBySpecies($gender, $species)
     {
+        $datas = $this->getAllByGender($gender);
         $datasBySpecies = [];
         foreach ($datas as $data) {
             if ($data->species == $species) {
@@ -45,8 +46,9 @@ class LoverApiFetch
         return $datasBySpecies;
     }
 
-    public function getByAge($datas, $choice)
+    public function getByAge($gender, $species, $choice)
     {
+        $datas = $this->getBySpecies($gender, $species);
         $datasByAge = [];
         if ($choice == 0) {
             foreach ($datas as $data) {
@@ -72,24 +74,25 @@ class LoverApiFetch
         return $datasByAge;
     }
 
-    public function getByHeight ($datas, $choice)
+    public function getByHeight ($gender, $species, $choice, $choice2)
     {
+        $datas = $this->getByAge($gender, $species, $choice);
         $datasByHeight = [];
-        if ($choice == 0) {
+        if ($choice2 == 0) {
             foreach ($datas as $data) {
                 if ($data->height < 1) {
                     $datasByHeight[] = $data;
                 }
             }
         }
-        if ($choice == 1) {
+        if ($choice2 == 1) {
             foreach ($datas as $data) {
                 if ($data->height > 1 && $data->height < 2) {
                     $datasByHeight[] = $data;
                 }
             }
         }
-        if ($choice == 2) {
+        if ($choice2 == 2) {
             foreach ($datas as $data) {
                 if ($data->height > 2) {
                     $datasByHeight[] = $data;
