@@ -1,15 +1,19 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
+
     {% include 'LoverApi/question1.html.twig' %}
-
-
-    {% for lover in lovers %}
-    Nom: {{ lover.name }}<br>
-    {% if lover.height is defined %}
-        <p style="background-color: #0000F0"> {{ lover.height }}</p><br>
-    {% endif %}
-
-    {% endfor %}
-
+    <div class="container">
+        <div class="row">
+            {% for lover in lovers %}
+                <div class="text-center col-md-2">
+                    <div class="mb-2 card">
+                        <span class="center-block"><img src="{{ lover.image }}" height="60px" width="60px"></span>
+                        <a href="" style="font-size: 15px">{{ lover.name }}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 
 {% endblock %}

@@ -42,6 +42,4 @@ class LoverApiController extends Controller
 
     }
 
-
-
 }
