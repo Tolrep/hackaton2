@@ -4,13 +4,13 @@
 
     {% include 'LoverApi/question2.html.twig' %}
 
-    <div class="container">
+    <div class="container-fluid allCard">
         <div class="row">
             {% for lover in lovers %}
                 <div class="text-center col-md-2">
-                    <div class="mb-2 card">
-                        <span class="center-block"><img src="{{ lover.image }}" height="60px" width="60px"></span>
-                        <a href="" style="font-size: 15px">{{ lover.name }}</a>
+                    <div class="eaCard mt-5 card">
+                        <span class="center-block"><img src="{{ lover.image }}" height="150px" width="125px"></span>
+                        <div class="eaLoverLink">{{ lover.name }}</div>
                     </div>
                 </div>
             {% endfor %}
