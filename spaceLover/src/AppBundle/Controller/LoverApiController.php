@@ -48,12 +48,15 @@ class LoverApiController extends Controller
                         shuffle($datasByHeight);
 
                         $winner = $datasByHeight[0];
+                        $price = rand(250,2000);
 
                         $templateVariables = [
-                            'lovers' => $winner,
+                            'lover' => $winner,
+                            'price' => $price,
+                            'noPlanet' => 'la bordure extèrieur',
                         ];
 
-                        return $this->render('LoverApi/list5.html.twig', $templateVariables);
+                        return $this->render('LoverApi/match.html.twig', $templateVariables);
                     }
 
                 else{
