@@ -1,6 +1,16 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+    {% include 'LoverApi/question1.html.twig' %}
     {% for lover in lovers %}
     Nom: {{ lover.name }}<br>
+    {% if lover.born is defined %}
+        <p style="background-color: #0000F0"> {{ lover.born }}</p><br>
+    {% endif %}
+        {% if lover.died is defined %}
+            <p style="background-color: green"> {{ lover.died }}</p><br>
+        {% endif %}
+
     {% endfor %}
+
+
 {% endblock %}
