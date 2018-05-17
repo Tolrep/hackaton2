@@ -8,9 +8,9 @@
         <div class="row">
             {% for lover in lovers %}
                 <div class="text-center col-md-2">
-                    <div class="mb-2 card">
+                    <div class="eaCard mb-2 card">
                         <span class="center-block"><img src="{{ lover.image }}" height="60px" width="60px"></span>
-                        <a href="/list/match/{{ lover.id }}" class="eaLoverLink">{{ lover.name }}</a>
+                        <div href="/list/match/{{ lover.id }}" class="eaLoverLink">{{ lover.name }}</div>
                     </div>
                 </div>
             {% endfor %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block bodyClass %}coBackgroud{% endblock %}
+
+{% block body %}
+
+
+    <div class="text-center container">
+        <div class="coForm ml-auto mr-auto pl-5 pr-5 card">
+            <form class="form-group" method="post">
+                <label for="username" class="coFormTitle">Pseudo</label>
+                <input type="text" name="username" id="username" class="mb-3 form-control">
+                <input type="submit" value="Passer du coté obscure" class="coFormBtn btn btn-secondary">
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
