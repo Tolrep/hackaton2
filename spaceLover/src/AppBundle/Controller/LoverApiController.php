@@ -23,13 +23,17 @@ class LoverApiController extends Controller
             'lovers' => $lovers,
         ]);
     }
+
     /**
-     * @Route("/test")
+     * @Route("/match/{id}")
      */
-    public function listByGender()
+    public function matchAction($id)
     {
         $api = new LoverApiFetch();
-        $lovers = $api->getOneById(17);
-
+        $lover = $api->getOneById($id);
+        return $this->render('LoverApi/match.html.twig', [
+            'lover' => $lover,
+            'noPlanet' => 'la bordure extèrieur'
+        ]);
     }
 }
