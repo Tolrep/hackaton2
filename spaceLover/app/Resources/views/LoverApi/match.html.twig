@@ -2,6 +2,66 @@
 
 {% block body %}
 
-    Nom : {{ lover.name }}
+    <div class="container">
+        <div class="text-center card">
+            <p class="endMessage">{{ lover.name }} sera chargé sur le Faucon Millenium demain matin.<br>
+                Il vient directement de
+                {% if lover.homeworld is not defined %}
+                    {{ noPlanet }}
+                {% elseif lover.homeworld.0 is not defined %}
+                    {{ lover.homeworld }}
+                {% elseif lover.homeworld.0 is defined %}
+                    {{ lover.homeworld.0 }}
+                {% endif %}
+                et vous sera donc livré dans
+                {% if lover.homeworld is not defined %}
+                    {{ noPlanet|length }}
+                {% elseif lover.homeworld.0 is not defined %}
+                    {{ lover.homeworld|length }}
+                {% elseif lover.homeworld.0 is defined %}
+                    {{ lover.homeworld.0|length }}
+                {% endif %}
+                ans.</p>
+            <span class="center-block"><img src="{{ lover.image }}" height="300px" width="250px"></span>
+            <table class="detailedCard ml-auto mr-auto table table-striped table-dark mt-3">
+                <tr>
+                    <th>Nom :</th>
+                    <td>{{ lover.name }}</td>
+                </tr>
+                <tr>
+                    <th>Taille :</th>
+                    <td>{% if lover.height is defined %}{{ lover.height }}{% else %}N/A{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>Poids :</th>
+                    <td>{% if lover.mass is defined %}{{ lover.mass }}{% else %}N/A{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>Sexe :</th>
+                    <td>{% if lover.gender is defined %}{{ lover.gender }}{% else %}N/A{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>Planète :</th>
+                    <td>{% if lover.homeworld is defined %}{{ lover.homeworld }}{% else %}N/A{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>Race :</th>
+                    <td>{% if lover.species is defined %}{{ lover.species }}{% else %}N/A{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>Couleur des cheveux :</th>
+                    <td>{% if lover.hairColor is defined %}{{ lover.hairColor }}{% else %}N/A{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>Couleur des yeux :</th>
+                    <td>{% if lover.eyeColor is defined %}{{ lover.eyeColor }}{% else %}N/A{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>Couleur de peau :</th>
+                    <td>{% if lover.skinColor is defined %}{{ lover.skinColor }}{% else %}N/A{% endif %}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
 {% endblock %}

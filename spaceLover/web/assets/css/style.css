@@ -6,4 +6,18 @@ header {
 
 body {
     background: url("../img/etoiles.gif") fixed;
+    font-family: 'Oswald', sans-serif;
+}
+
+.eaLoverLink {
+    font-size: 15px;
+}
+
+.endMessage {
+    font-size: 2em;
+    color: green;
+}
+
+.detailedCard {
+    width: 400px;
 }

@@ -38,6 +38,18 @@ class LoverApiController extends Controller
         return $this->render('LoverApi/list.html.twig', [
             'lovers' => $lovers,
         ]);
+    }
 
+    /**
+     * @Route("/match/{id}")
+     */
+    public function matchAction($id)
+    {
+        $api = new LoverApiFetch();
+        $lover = $api->getOneById($id);
+        return $this->render('LoverApi/match.html.twig', [
+            'lover' => $lover,
+            'noPlanet' => 'la bordure extèrieur'
+        ]);
     }
 }
