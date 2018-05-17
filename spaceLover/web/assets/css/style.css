@@ -1,0 +1,9 @@
+header {
+    box-shadow: black 2px 2px 2px;
+    width: 1140px;
+    background-color: white;
+}
+
+body {
+    background: url("../img/etoiles.gif") fixed;
+}
