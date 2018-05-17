@@ -27,7 +27,7 @@ class DefaultController extends Controller
             ]);
         }
 
-        return $this->render('connexion/connexion.html.twig');
+        return $this->render('default/connexion.html.twig');
     }
 
     /**
@@ -38,7 +38,7 @@ class DefaultController extends Controller
     {
         $session->invalidate();
 
-        return $this->render('connexion/connexion.html.twig');
+        return $this->render('default/logout.html.twig');
 
     }
 }

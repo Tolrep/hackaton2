@@ -1,12 +1,60 @@
+@font-face {
+    font-family: starjout;
+    src: url("../font/Starjout.f72f509a.ttf");
+}
+
+@font-face {
+    font-family: starjedi;
+    src: url("../font/Starjedi.cc3019aa.ttf");
+}
+
+@font-face {
+    font-family: biko;
+    src: url("../font/Biko_Regular.7cf27339.otf");
+}
+
 header {
     box-shadow: black 2px 2px 2px;
     width: 1140px;
-    background-color: white;
+    background-color: rgba(190, 190, 190, 0.7);
+}
+h1 {
+    color: #FFD200;
+    text-shadow: 2px 2px black;
+    font-family: 'Starjout';
+    font-size: 3em;
 }
 
-body {
+form p {
+    color: #FFD200;
+    font-family: starjedi;
+}
+
+.eaCard {
+    background-color: rgba(190, 190, 190, 0.7);
+    color: #FFD200;
+    text-shadow: 2px 2px black;
+}
+
+.welcomeMess {
+    font-size: 1.5em;
+    color: #FFD200;
+    text-shadow: 2px 2px black;
+}
+
+.logoutLink {
+    color: #FFD200;
+    text-shadow: 2px 2px black;
+}
+
+.backgroundBody {
     background: url("../img/etoiles.gif") fixed;
     font-family: 'Oswald', sans-serif;
+}
+
+.coBackgroud {
+    background: url("../img/hs3.gif") no-repeat fixed;
+    background-size: 100% 100%;
 }
 
 .eaLoverLink {
@@ -20,4 +68,33 @@ body {
 
 .detailedCard {
     width: 400px;
+}
+
+.coForm {
+    width: 500px;
+    background-color: rgba(190, 190, 190, 0.7);
+    margin-top: 210px;
+}
+
+.coFormTitle {
+    color: #FFD200;
+    text-shadow: 2px 2px black;
+    font-size: 2em;
+}
+
+.coFormBtn {
+    background-color: black;
+}
+
+.coFormBtn:hover {
+    background-color: #FFD200;
+}
+
+.exitMess {
+    background-color: rgba(190, 190, 190, 0.7);
+    color: #FFD200;
+    text-shadow: 2px 2px black;
+    width: 300px;
+    margin-top: 100px;
+    font-size: 2em;
 }

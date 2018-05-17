@@ -2,30 +2,34 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}(Nomn du site){% endblock %}</title>
+        <title>{% block title %}Intergalactic Market{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel="stylesheet" href="/assets/css/style.css">
     </head>
 
-    <body>
+    <body class="{% block bodyClass %}backgroundBody{% endblock %}">
 
         <header class="text-center mb-3 mt-2 ml-auto mr-auto">
             <div class="container">
                 <nav>
                     <div class="row">
                         <div class="col-md-2">
-                            {{ session.get('user') }}
+                            {% if session.get('user') %}
+                                <span class="welcomeMess">Bienvenue {{ session.get('user') }} !</span>
+                            {% endif %}
                         </div>
 
                         <div class="col-md-8">
-                            <h1>(Nom du site)</h1>
+                            <h1>intergalactic market</h1>
                         </div>
 
-                        <div class="col-md-2">
-                            <a href="/">Partir</a>
-                        </div>
+                        {% if session.get('user') %}
+                            <div class="col-md-2">
+                                <a href="/logout" class="logoutLink">Quitter</a>
+                            </div>
+                        {% endif %}
                     </div>
                 </nav>
             </div>
