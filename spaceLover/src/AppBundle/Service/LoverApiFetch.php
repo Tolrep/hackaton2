@@ -46,25 +46,25 @@ class LoverApiFetch
         return $datasBySpecies;
     }
 
-    public function getByAge($gender, $species, $choice)
+    public function getByAge($datas, $choice)
     {
-        $datas = $this->getBySpecies($gender, $species);
+        //$datas = $this->getBySpecies($gender, $species);
         $datasByAge = [];
-        if ($choice == 0) {
+        if ($choice === 1) {
             foreach ($datas as $data) {
-                if (!isset($data->died) && $data->born < -10) {
+                if (isset($data->born) && !isset($data->died) && $data->born < -40 || !isset($data->born)) {
                     $datasByAge[] = $data;
                 }
             }
         }
-        if ($choice == 1) {
+        if ($choice === 0) {
             foreach ($datas as $data) {
-                if (!isset($data->died) && $data->born > -10) {
+                if (isset($data->born) && !isset($data->died) && $data->born >= -40) {
                     $datasByAge[] = $data;
                 }
             }
         }
-        if ($choice == 2) {
+        if ($choice === 2) {
             foreach ($datas as $data) {
                 if (isset($data->died)) {
                     $datasByAge[] = $data;
