@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <div class="container-fluid" style="margin-top:30px;">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3" style="padding-right: 0px!important;padding-left: 0px!important;">
+                <div class="panel-body" style="padding-right: 4px!important;padding-left: 4px!important;">
+                    <form class="form-horizontal" method="post" id="login" name="login" role="form" onSubmit='#'
+                          action="" AUTOCOMPLETE="off">
+                        <fieldset  style="min-width: 0;padding:.35em .625em .75em!important;margin:0 2px;border: 2px solid silver!important;margin-bottom: 10em;box-shadow: -6px 15px 20px 0px;">
+                            <legend id="first3" style="width: inherit;padding:inherit;border:2px solid silver;" class="legend">Username</legend>
+
+                                <label for="username"> Pseudo</label>
+                                <input type="text" name="username" id="username">
+                                <input type="submit" value="Entrer">
+
+                            <a href="/logout">Déconnexion</a>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
