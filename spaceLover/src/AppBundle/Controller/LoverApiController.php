@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class LoverApiController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="list")
      */
     public function listAction()
     {
