@@ -23,4 +23,13 @@ class LoverApiController extends Controller
             'lovers' => $lovers,
         ]);
     }
+    /**
+     * @Route("/test")
+     */
+    public function listByGender()
+    {
+        $api = new LoverApiFetch();
+        $lovers = $api->getOneById(17);
+
+    }
 }
