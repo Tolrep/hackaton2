@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include 'LoverApi/question4.html.twig' %}
+
+    <div class="container">
+        <div class="row">
+            {% for lover in lovers %}
+                <div class="text-center col-md-2">
+                    <div class="mb-2 card">
+                        <span class="center-block"><img src="{{ lover.image }}" height="60px" width="60px"></span>
+                        <a href="" style="font-size: 15px">{{ lover.name }}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

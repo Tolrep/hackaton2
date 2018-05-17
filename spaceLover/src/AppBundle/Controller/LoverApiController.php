@@ -23,21 +23,80 @@ class LoverApiController extends Controller
         $api = new LoverApiFetch();
         $lovers = $api->getAll();
 
-        if ($request->getMethod() == 'POST') {
+        if ($request->query->get('gender')) {
+            $gender = $request->query->get('gender');
 
-            $gender= $request->get('question');
-            $apiGender = new LoverApiFetch();
+            $datasByGenders = $api->getAllByGender($gender);
+
+            if ($request->query->get('species')) {
+                $gender = $request->query->get('gender');
+                $species = $request->query->get('species');
+
+                $datasBySpecies = $api->getBySpecies($datasByGenders, $species);
+
+                if($request->query->get('age')) {
+                    $gender = $request->query->get('gender');
+                    $species = $request->query->get('species');
+                    $age = $request->query->get('age');
+
+                    $datasByAge = $api->getByAge($datasBySpecies, $age);
+
+                    if ($request->query->get('height')) {
+                        $height = $request->query->get('height');
+
+                        $datasByHeight = $api->getByHeight($datasByAge, $height);
+                        shuffle($datasByHeight);
+
+                        $winner = $datasByHeight[0];
+
+                        $templateVariables = [
+                            'lovers' => $winner,
+                        ];
+
+                        return $this->render('LoverApi/list5.html.twig', $templateVariables);
+                    }
+
+                else{
+
+                        $templateVariables = [
+                            'gender' => $gender,
+                            'species' => $species,
+                            'age' => $age,
+                            'lovers' => $datasByAge,
+                        ];
+
+                        return $this->render('LoverApi/list4.html.twig', $templateVariables);
+                    }
 
 
-            $templateVariables = [
-                'gender' => $gender];
 
-            return $this->redirectToRoute('list', $templateVariables);
+                } else {
+                    $templateVariables = [
+                        'gender' => $gender,
+                        'species' => $species,
+                        'lovers' => $datasBySpecies,];
+
+                    return $this->render('LoverApi/list3.html.twig', $templateVariables);
+                }
+
+
+            } else {
+
+                $templateVariables = [
+                    'gender' => $gender,
+                    'lovers' => $datasByGenders,];
+
+                return $this->render('LoverApi/list2.html.twig', $templateVariables);
+
+            }
+
+        } else {
+            return $this->render('LoverApi/list.html.twig', [
+                'lovers' => $lovers,
+            ]);
+
         }
 
-        return $this->render('LoverApi/list.html.twig', [
-            'lovers' => $lovers,
-        ]);
     }
 
     /**
@@ -47,9 +106,15 @@ class LoverApiController extends Controller
     {
         $api = new LoverApiFetch();
         $lover = $api->getOneById($id);
+
+        $price = rand(250,2000);
+
         return $this->render('LoverApi/match.html.twig', [
             'lover' => $lover,
-            'noPlanet' => 'la bordure extèrieur'
+            'noPlanet' => 'la bordure extèrieur',
+            'price' => $price
+
         ]);
     }
+
 }

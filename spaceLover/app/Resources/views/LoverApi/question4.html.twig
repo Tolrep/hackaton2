@@ -1,17 +1,18 @@
-<form>
+<form method="get" action="" style="background-color: #6b9311">
     <p>Quel type de coureur aimes tu ?</p>
     <div>
-        <input type="radio" id="choice1"
-               name="contact" value="1">
+        <input type="hidden" name="gender" value="{{ gender }}"/>
+        <input type="hidden" name="species" value="{{ species }}"/>
+        <input type="hidden" name="age" value="{{ age }}"/>
+
+        <input type="radio" id="choice1" name="height" value="1">
         <label for="choice1">sprinteur</label>
 
-        <input type="radio" id="choice2"
-               name="contact" value="2">
+        <input type="radio" id="choice2" name="height" value="2">
         <label for="choice2">marathonien</label>
 
-        <input type="radio" id="choice3"
-               name="contact" value="3">
+        <input type="radio" id="choice3" name="height" value="3">
         <label for="choice3">j'aime pas la course</label>
     </div>
-    <div>
+    <input type="submit">
 </form>

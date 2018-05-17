@@ -3,8 +3,10 @@
 {% block body %}
 
     <div class="container">
-        <div class="text-center card">
-            <p class="endMessage">{{ lover.name }} sera chargé sur le Faucon Millenium demain matin.<br>
+        <div class="text-center card" style="background:  rgba(190,190,190, 0.50)" >
+            <p class="finalMatch">Il est à vous, pour la modique somme de {{ price }} Dataries</p>
+            <p class="endMessage">{{ lover.name }} sera chargé sur le Faucon Millenium
+            demain matin.<br>
                 Il vient directement de
                 {% if lover.homeworld is not defined %}
                     {{ noPlanet }}
@@ -22,6 +24,7 @@
                     {{ lover.homeworld.0|length }}
                 {% endif %}
                 ans.</p>
+                <img src="http://www.gifsanimes.com/data/media/604/vaisseau-spatial-image-animee-0012.gif" style="opacity: 1">
             <span class="center-block"><img src="{{ lover.image }}" height="300px" width="250px"></span>
             <table class="detailedCard ml-auto mr-auto table table-striped table-dark mt-3">
                 <tr>
@@ -65,3 +68,4 @@
     </div>
 
 {% endblock %}
+
