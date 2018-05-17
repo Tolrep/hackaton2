@@ -26,10 +26,14 @@ class LoverApiController extends Controller
     /**
      * @Route("/test")
      */
-    public function listByGender()
+    public function test()
     {
+
         $api = new LoverApiFetch();
-        $lovers = $api->getOneById(17);
+        $datas = $api->getAll();
+        $lovers = $api->getByAge($datas, 0);
+        var_dump($lovers);die;
+
 
     }
 }
