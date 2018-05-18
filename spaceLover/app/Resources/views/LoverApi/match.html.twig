@@ -14,7 +14,7 @@
             {% else %}
                 <p class="finalMatch">Il est à vous, pour la modique somme de {{ price }} Dataries</p>
                 <p class="endMessage">
-                    {{ lover.name }} sera chargé sur le Faucon Millenium demain matin.<br>
+                    {{ lover.name }} embarquera dans le Faucon Millenium demain matin.<br>
                     Il vient directement de
                     {% if lover.homeworld is not defined %}
                         {{ noPlanet }}
@@ -25,11 +25,11 @@
                     {% endif %}
                     et vous sera donc livré dans
                     {% if lover.homeworld is not defined %}
-                        {{ noPlanet|length }}
+                        <span class="livraison">{{ noPlanet|length }}</span>
                     {% elseif lover.homeworld.0 is not defined %}
-                        {{ lover.homeworld|length }}
+                        <span class="livraison">{{ lover.homeworld|length }}</span>
                     {% elseif lover.homeworld.0 is defined %}
-                        {{ lover.homeworld.0|length }}
+                        <span class="livraison">{{ lover.homeworld.0|length }}</span>
                     {% endif %}
                     ans.
                 </p>
