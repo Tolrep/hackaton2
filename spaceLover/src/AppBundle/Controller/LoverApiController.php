@@ -22,17 +22,20 @@ class LoverApiController extends Controller
     {
         $api = new LoverApiFetch();
         $lovers = $api->getAll();
+        shuffle($lovers);
 
         if ($request->query->get('gender')) {
             $gender = $request->query->get('gender');
 
             $datasByGenders = $api->getAllByGender($gender);
+            shuffle($datasByGenders);
 
             if ($request->query->get('species')) {
                 $gender = $request->query->get('gender');
                 $species = $request->query->get('species');
 
                 $datasBySpecies = $api->getBySpecies($datasByGenders, $species);
+                shuffle($datasBySpecies);
 
                 if($request->query->get('age')) {
                     $gender = $request->query->get('gender');
@@ -40,11 +43,48 @@ class LoverApiController extends Controller
                     $age = $request->query->get('age');
 
                     $datasByAge = $api->getByAge($datasBySpecies, $age);
+                    shuffle($datasByAge);
+                    if ($datasByAge == []) {
+                        $winner = [];
+                        $winner[] = $api->getOneById(16);
+                        $winner[] = $api->getOneById(83);
+                        $winner[] = $api->getOneById(53);
+                        $winner[] = $api->getOneById(13);
+                        $winner[] = $api->getOneById(49);
+                        $winner[] = $api->getOneById(45);
+                        shuffle($winner);
+                        $price = rand(250, 2000);
+                        $templateVariables = [
+                            'lover' => $winner[0],
+                            'price' => $price,
+                            'noPlanet' => 'la bordure extèrieur',
+                        ];
+
+                        return $this->render('LoverApi/match.html.twig', $templateVariables);
+                    }
 
                     if ($request->query->get('height')) {
                         $height = $request->query->get('height');
 
                         $datasByHeight = $api->getByHeight($datasByAge, $height);
+                        if ($datasByHeight == []) {
+                            $winner = [];
+                            $winner[] = $api->getOneById(16);
+                            $winner[] = $api->getOneById(83);
+                            $winner[] = $api->getOneById(53);
+                            $winner[] = $api->getOneById(13);
+                            $winner[] = $api->getOneById(49);
+                            $winner[] = $api->getOneById(45);
+                            shuffle($winner);
+                            $price = rand(250, 2000);
+                            $templateVariables = [
+                                'lover' => $winner[0],
+                                'price' => $price,
+                                'noPlanet' => 'la bordure extèrieur',
+                            ];
+
+                            return $this->render('LoverApi/match.html.twig', $templateVariables);
+                        }
                         shuffle($datasByHeight);
 
                         $winner = $datasByHeight[0];
