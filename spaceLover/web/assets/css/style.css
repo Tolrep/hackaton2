@@ -94,11 +94,11 @@ form p {
 }
 
 .exitMess {
-    background-color: rgba(190, 190, 190, 0.7);
+    background-color: rgba(190, 190, 190, 0);
     color: #FFD200;
-    text-shadow: 2px 2px black;
-    width: 300px;
+    width: 100%;
     margin-top: 100px;
+    margin-bottom: 100px;
     font-size: 2em;
 }
 
@@ -126,4 +126,13 @@ form p {
 
 .submit-question:hover{
     color: white;
+}
+
+.font-statjout {
+    font-family: starjout;
+}
+
+.font-starjedi {
+    font-family: starjedi;
+    text-shadow: 1px 1px white;
 }
