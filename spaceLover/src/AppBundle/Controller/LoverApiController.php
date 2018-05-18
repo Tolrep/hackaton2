@@ -44,7 +44,8 @@ class LoverApiController extends Controller
 
                     $datasByAge = $api->getByAge($datasBySpecies, $age);
                     shuffle($datasByAge);
-                    if ($datasByAge == []) {
+                    if (!count($datasByAge)) {
+                        $errorMess = true;
                         $winner = [];
                         $winner[] = $api->getOneById(16);
                         $winner[] = $api->getOneById(83);
@@ -58,6 +59,7 @@ class LoverApiController extends Controller
                             'lover' => $winner[0],
                             'price' => $price,
                             'noPlanet' => 'la bordure extèrieur',
+                            'errorMess' => true,
                         ];
 
                         return $this->render('LoverApi/match.html.twig', $templateVariables);
@@ -67,7 +69,7 @@ class LoverApiController extends Controller
                         $height = $request->query->get('height');
 
                         $datasByHeight = $api->getByHeight($datasByAge, $height);
-                        if ($datasByHeight == []) {
+                        if (!count($datasByHeight)) {
                             $winner = [];
                             $winner[] = $api->getOneById(16);
                             $winner[] = $api->getOneById(83);
