@@ -3,74 +3,105 @@
 {% block body %}
 
     <div class="container">
-        <div class="text-center card form-question " >
-            <p class="finalMatch">Il est à vous, pour la modique somme de {{ price }} Dataries</p>
-            <p class="endMessage">{{ lover.name }} sera chargé sur le Faucon Millenium
-            demain matin.<br>
-                Il vient directement de
-                {% if lover.homeworld is not defined %}
-                    {{ noPlanet }}
-                {% elseif lover.homeworld.0 is not defined %}
-                    {{ lover.homeworld }}
-                {% elseif lover.homeworld.0 is defined %}
-                    {{ lover.homeworld.0 }}
-                {% endif %}
-                et vous sera donc livré dans
-                {% if lover.homeworld is not defined %}
-                    {{ noPlanet|length }}
-                {% elseif lover.homeworld.0 is not defined %}
-                    {{ lover.homeworld|length }}
-                {% elseif lover.homeworld.0 is defined %}
-                    {{ lover.homeworld.0|length }}
-                {% endif %}
-                ans.</p>
+        <div class="text-center card" style="background:  rgba(190,190,190, 0.50)" >
+            {% if errorMess is defined %}
+                <p class="finalMatch">Personne ne vous correspond, en dédommagement Salacious Crumb vous parviendra dans 5 minutes !</p>
+                <button class="btn btn-link submit-question" onclick="afficherMasquerImg()">Mais qui est Salacious Crumb ???</button>
+                <div style="display: none" id="afficherMasquerImg">
+                    <img src="https://pbs.twimg.com/profile_images/3062794095/e3d04d94672ad4b712a73b08277716ac_400x400.jpeg">
+                </div>
+                <br>
+            {% else %}
+                <p class="finalMatch">Il est à vous, pour la modique somme de {{ price }} Dataries</p>
+                <p class="endMessage">
+                    {{ lover.name }} sera chargé sur le Faucon Millenium demain matin.<br>
+                    Il vient directement de
+                    {% if lover.homeworld is not defined %}
+                        {{ noPlanet }}
+                    {% elseif lover.homeworld.0 is not defined %}
+                        {{ lover.homeworld }}
+                    {% elseif lover.homeworld.0 is defined %}
+                        {{ lover.homeworld.0 }}
+                    {% endif %}
+                    et vous sera donc livré dans
+                    {% if lover.homeworld is not defined %}
+                        {{ noPlanet|length }}
+                    {% elseif lover.homeworld.0 is not defined %}
+                        {{ lover.homeworld|length }}
+                    {% elseif lover.homeworld.0 is defined %}
+                        {{ lover.homeworld.0|length }}
+                    {% endif %}
+                    ans.
+                </p>
                 <img src="http://www.gifsanimes.com/data/media/604/vaisseau-spatial-image-animee-0012.gif" style="opacity: 1">
-            <span class="center-block"><img src="{{ lover.image }}" height="300px" width="250px"></span>
-            <table class="detailedCard ml-auto mr-auto table table-striped table-dark mt-3">
-                <tr>
-                    <th>Nom :</th>
-                    <td>{{ lover.name }}</td>
-                </tr>
-                <tr>
-                    <th>Taille :</th>
-                    <td>{% if lover.height is defined %}{{ lover.height }}{% else %}N/A{% endif %}</td>
-                </tr>
-                <tr>
-                    <th>Poids :</th>
-                    <td>{% if lover.mass is defined %}{{ lover.mass }}{% else %}N/A{% endif %}</td>
-                </tr>
-                <tr>
-                    <th>Sexe :</th>
-                    <td>{% if lover.gender is defined %}{{ lover.gender }}{% else %}N/A{% endif %}</td>
-                </tr>
-                <tr>
-                    <th>Planète :</th>
-                    <td>{% if lover.homeworld is defined %}{{ lover.homeworld }}{% else %}N/A{% endif %}</td>
-                </tr>
-                <tr>
-                    <th>Race :</th>
-                    <td>{% if lover.species is defined %}{{ lover.species }}{% else %}N/A{% endif %}</td>
-                </tr>
-                <tr>
-                    <th>Couleur des cheveux :</th>
-                    <td>{% if lover.hairColor is defined %}{{ lover.hairColor }}{% else %}N/A{% endif %}</td>
-                </tr>
-                <tr>
-                    <th>Couleur des yeux :</th>
-                    <td>{% if lover.eyeColor is defined %}{{ lover.eyeColor }}{% else %}N/A{% endif %}</td>
-                </tr>
-                <tr>
-                    <th>Couleur de peau :</th>
-                    <td>{% if lover.skinColor is defined %}{{ lover.skinColor }}{% else %}N/A{% endif %}</td>
-                </tr>
-            </table>
+                <span class="center-block"><img src="{{ lover.image }}" height="300px" width="250px"></span>
+                <table class="detailedCard ml-auto mr-auto table table-striped table-dark mt-3">
+                    <tr>
+                        <th>Nom :</th>
+                        <td>{{ lover.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Taille :</th>
+                        <td>{% if lover.height is defined %}{{ lover.height }}{% else %}N/A{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>Poids :</th>
+                        <td>{% if lover.mass is defined %}{{ lover.mass }}{% else %}N/A{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>Sexe :</th>
+                        <td>{% if lover.gender is defined %}{{ lover.gender }}{% else %}N/A{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>Planète :</th>
+                        <td>{% if lover.homeworld is defined %}{{ lover.homeworld }}{% else %}N/A{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>Race :</th>
+                        <td>{% if lover.species is defined %}{{ lover.species }}{% else %}N/A{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>Couleur des cheveux :</th>
+                        <td>{% if lover.hairColor is defined %}{{ lover.hairColor }}{% else %}N/A{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>Couleur des yeux :</th>
+                        <td>{% if lover.eyeColor is defined %}{{ lover.eyeColor }}{% else %}N/A{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>Couleur de peau :</th>
+                        <td>{% if lover.skinColor is defined %}{{ lover.skinColor }}{% else %}N/A{% endif %}</td>
+                    </tr>
+                </table>
+            {% endif %}
         </div>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
         <div class="text-center">
             <a class="btn btn-link submit-question" href="/list">retour à la shoping list</a>
 
         </div>
-
     </div>
 
+{% endblock %}
+
+{% block js %}
+    <script> /* Fonction JS */
+
+        function afficherMasquerImg()
+        {
+            var x = document.getElementById("afficherMasquerImg");
+            if (x.style.display === "none")
+            {
+                $('#afficherMasquerImg').slideToggle(1000);
+            }
+            else
+            {
+                $('#afficherMasquerImg').slideToggle(1000);
+            }
+        }
+
+    </script>
 {% endblock %}
 
