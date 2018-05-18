@@ -45,10 +45,17 @@ class LoverApiController extends Controller
                     $datasByAge = $api->getByAge($datasBySpecies, $age);
                     shuffle($datasByAge);
                     if ($datasByAge == []) {
-                        $winner = $api->getOneById(16);
+                        $winner = [];
+                        $winner[] = $api->getOneById(16);
+                        $winner[] = $api->getOneById(83);
+                        $winner[] = $api->getOneById(53);
+                        $winner[] = $api->getOneById(13);
+                        $winner[] = $api->getOneById(49);
+                        $winner[] = $api->getOneById(45);
+                        shuffle($winner);
                         $price = rand(250, 2000);
                         $templateVariables = [
-                            'lover' => $winner,
+                            'lover' => $winner[0],
                             'price' => $price,
                             'noPlanet' => 'la bordure extèrieur',
                         ];
@@ -61,10 +68,17 @@ class LoverApiController extends Controller
 
                         $datasByHeight = $api->getByHeight($datasByAge, $height);
                         if ($datasByHeight == []) {
-                            $winner = $api->getOneById(16);
+                            $winner = [];
+                            $winner[] = $api->getOneById(16);
+                            $winner[] = $api->getOneById(83);
+                            $winner[] = $api->getOneById(53);
+                            $winner[] = $api->getOneById(13);
+                            $winner[] = $api->getOneById(49);
+                            $winner[] = $api->getOneById(45);
+                            shuffle($winner);
                             $price = rand(250, 2000);
                             $templateVariables = [
-                                'lover' => $winner,
+                                'lover' => $winner[0],
                                 'price' => $price,
                                 'noPlanet' => 'la bordure extèrieur',
                             ];
