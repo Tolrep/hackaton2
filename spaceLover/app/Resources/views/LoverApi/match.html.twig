@@ -3,14 +3,14 @@
 {% block body %}
 
     <div class="container">
-        <div class="text-center card" style="background:  rgba(190,190,190, 0.50)" >
+        <div class="text-center card" style="background:  rgba(190,190,190, 0)" >
             {% if errorMess is defined %}
                 <p class="finalMatch">Personne ne vous correspond, en dédommagement Salacious Crumb vous parviendra dans 5 minutes !</p>
                 <button class="btn btn-link submit-question" onclick="afficherMasquerImg()">Mais qui est Salacious Crumb ???</button>
-                <div style="display: none" id="afficherMasquerImg">
-                    <img src="https://pbs.twimg.com/profile_images/3062794095/e3d04d94672ad4b712a73b08277716ac_400x400.jpeg">
+                <div style="display: none" id="afficherMasquerImg" >
+                    <img src="https://pbs.twimg.com/profile_images/3062794095/e3d04d94672ad4b712a73b08277716ac_400x400.jpeg" class="mb-3">
                 </div>
-                <br>
+
             {% else %}
                 <p class="finalMatch">Il est à vous, pour la modique somme de {{ price }} Dataries</p>
                 <p class="endMessage">
@@ -76,10 +76,8 @@
             {% endif %}
         </div>
 
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
         <div class="text-center">
-            <a class="btn btn-link submit-question" href="/list">retour à la shoping list</a>
+            <a class="btn btn-link font-starjedi submit-question mt-5 mb-5" href="/list">retour à la shoping list</a>
 
         </div>
     </div>
