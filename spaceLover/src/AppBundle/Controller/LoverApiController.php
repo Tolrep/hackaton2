@@ -22,17 +22,20 @@ class LoverApiController extends Controller
     {
         $api = new LoverApiFetch();
         $lovers = $api->getAll();
+        shuffle($lovers);
 
         if ($request->query->get('gender')) {
             $gender = $request->query->get('gender');
 
             $datasByGenders = $api->getAllByGender($gender);
+            shuffle($datasByGenders);
 
             if ($request->query->get('species')) {
                 $gender = $request->query->get('gender');
                 $species = $request->query->get('species');
 
                 $datasBySpecies = $api->getBySpecies($datasByGenders, $species);
+                shuffle($datasBySpecies);
 
                 if($request->query->get('age')) {
                     $gender = $request->query->get('gender');
@@ -40,6 +43,7 @@ class LoverApiController extends Controller
                     $age = $request->query->get('age');
 
                     $datasByAge = $api->getByAge($datasBySpecies, $age);
+                    shuffle($datasByAge);
                     if ($datasByAge == []) {
                         $winner = $api->getOneById(16);
                         $price = rand(250, 2000);
