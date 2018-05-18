@@ -29,6 +29,8 @@ class LoverApiFetch
         foreach ($datas as $data) {
             if ($data->gender == $gender) {
                 $datasByGender[] = $data;
+            } elseif (isset($data->height) && $gender == 'bigMale' && $data->height > 1.5) {
+                $datasByGender[] = $data;
             }
         }
     return $datasByGender;
